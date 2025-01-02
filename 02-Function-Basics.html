@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name = "viewport", content="width=device-width, initial-scale=1.0">
+    <title>02 Function Basics</title>
+</head>
+<body>
+
+</body>
+<script>
+    //q1: function which adds 7 to number
+   function add7(number) {
+    return number + 7;
+   } 
+   console.log(add7(9));
+   //q2: function which multiplies 2 numbers
+   function multiply(num1, num2) {
+    return num1*num2;
+   }
+   console.log(multiply(10,7));
+   //q3: function that takes string, returns with only first letter capitalised
+   function capitalise(string) {
+    return (string.slice(0,1).toLocaleUpperCase() + string.slice(1).toLocaleLowerCase())
+   }
+   console.log(capitalise("Test One"))
+   console.log(capitalise("tEST tWO"))
+   console.log(capitalise("test three"))
+   console.log(capitalise("TEST FOUR"))
+   //q4: function that takes a string and returns very latter
+   function lastLetter(string) {
+    return string.slice(-1)
+   }
+   console.log(lastLetter("Test One"))
+   console.log(lastLetter("tEST tWO"))
+   console.log(lastLetter("test three"))
+   console.log(lastLetter("TEST FOUR"))
+</script>
+</html>
