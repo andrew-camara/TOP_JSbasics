@@ -31,9 +31,8 @@ function getPlayerChoice() {
         }
         //otherwise, test for valid input
             //If valid, tell player their choice,
-            // set keepgoing to false to end the loop,
-            //and store their choice in lowercase for 
-            // comparisons
+            // and return their answer in lowercase
+            //thus exiting the loop
         else if (playerAnswer.toLocaleLowerCase() === "rock") {return "rock";}
         else if (playerAnswer.toLocaleLowerCase() === "paper") {return "paper";} 
         else if (playerAnswer.toLocaleLowerCase() === "scissors") {return "scissors";} 
@@ -48,11 +47,10 @@ function getPlayerChoice() {
     {
         //If tie, do not update score and alert player
         if (cpuChoice === playerChoice) {
-            alert("it's a tie! Eat shit!")
+            alert(`You selected ${playerChoice} and the computer selected ${cpuChoice}; it's a tie! You are on ${playerScore} points and the computer is on ${cpuScore} points`);
         }
-          //If player wins, increase playerScore by 1, inform 
-            // player, and end the round by setting keepgoing 
-            // to false
+          //If player wins, increase playerScore by 1, 
+          // inform player
         else if (playerChoice === "rock" && cpuChoice === "scissors"
             || playerChoice === "paper" && cpuChoice === "rock"
             || playerChoice === "scissors" && cpuChoice === "paper") { ++playerScore;
@@ -69,6 +67,44 @@ function getPlayerChoice() {
                     alert(`You selected ${playerChoice} and the computer selected ${cpuChoice}; you lost the round! You are on ${playerScore} points and the computer is on ${cpuScore} points`);
                     }
     }
-    const cpuChoice = getComputerChoice();
-    const playerChoice = getPlayerChoice();
- 
+//Create function that plays 5 rounds, declares winner
+function playGame() {
+    //reset scores to zero
+    cpuScore = 0
+    playerScore = 0
+    //run playRound() 5 times, and re-assign value
+    // of player and cpu choice so that new value selected
+    // each time
+    for (let i = 0; i < 5; i++)
+    {
+        let playerChoice = getPlayerChoice();
+        let cpuChoice = getComputerChoice();
+        playRound(cpuChoice, playerChoice);
+    }
+    //compare scores, declare a winner
+    if (cpuScore > playerScore) {
+        alert(
+            `Player score: ${playerScore}
+            Cpu score: ${cpuScore}
+            You lost :( commiserations!`
+        ); 
+        }
+    else if (cpuScore < playerScore) {
+        alert(
+            `Player score: ${playerScore}
+            Cpu score: ${cpuScore}
+            You won! Congratulations!`
+        );
+        }
+    else if (cpuScore === playerScore) {
+        alert(
+            `Player score: ${playerScore}
+            Cpu score: ${cpuScore}
+            it's a tie!`
+        );
+        }
+    playerScore = 0;
+    cpuScore = 0;
+    }
+//add button so that user can play the game from the webpage
+document.getElementById("playButton").addEventListener("click", playGame);
