@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <h2>Countdown timer</h2>
+    <div class="output" style="height: 410px;overflow: auto;"></div>
+    
+    <h2>Editable code</h2>
+    <p class="a11y-label">
+      Press Esc to move focus away from the code area (Tab inserts a tab character).
+    </p>
+    <textarea id="code" class="playable-code" style="height: 300px;width: 95%">
+    const output = document.querySelector('.output');
+    output.textContent = "";
+    
+    for (let i = 10; i > -1; i--) {
+	    
+	    const para = document.createElement('p');
+		if (i === 10) {
+		 para.textContent = `Countdown in ${i}`;
+		}
+		else if (i === 0) {
+		para.textContent = `Ya mum`;
+		}
+		else {
+		para.textContent = i;
+		}
+		output.appendChild(para);
+    	}
+    </textarea>
+    
+    <div class="playable-buttons">
+      <input id="reset" type="button" value="Reset" />
+      <input id="solution" type="button" value="Show solution" />
+    </div>
+    <script src="loopCountdown.js"></script>
+</body>
+</html>
