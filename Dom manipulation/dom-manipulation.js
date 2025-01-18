@@ -1,15 +1,15 @@
 const container = document.querySelector("#container");
 const content = document.createElement("div");
 content.classList.add("content");
-content.textContent = "This is glorious text-content, ya mum!";
+content.textContent = "This is glorious text-content!";
 container.appendChild(content);
 const redText = document.createElement("p");
 redText.style.color = "red"
-redText.textContent = "Hey I'm red, ya mum!";
+redText.textContent = "Hey I'm red";
 container.appendChild(redText)
 const blueText = document.createElement("h3")
 blueText.style.color = "blue"
-blueText.textContent = "Hey I'm blue h3, ya mum!"
+blueText.textContent = "Hey I'm blue h3"
 container.appendChild(blueText)
 
 //create container, insert into html
@@ -32,5 +32,11 @@ container.appendChild(blueText)
         pinkBox.appendChild(pinkBoxText);
     //append div and its contents to container
         container.appendChild(pinkBox);
-
-
+//add functionality to button
+const btn = document.querySelector("#btn");
+btn.onclick = () => {alert("Hello, World")};
+const btn3 = document.querySelector("#btn3")
+btn3.addEventListener("click", (e) => {
+    alert("Hello, World!");
+    e.target.style.background = "blue";
+});
